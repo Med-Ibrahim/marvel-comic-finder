@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Marvel Comic Search</title>
+    <
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="md5.min.js"></script>
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-5">Marvel Comic Finder</h1>
+          <br>
+        </div>
+      </div>
+      <form>
+        <div class="form-row">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by title (or initial words)" aria-label="Search..." aria-describedby="basic-addon2" id="searchBar">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="go" onclick="searchGo()">Go!</button>
+            </div>
+          </div>
+        </div>
+        <br>
+        <h3> Filter by</h3>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Start Year" id="startYearFilter">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Exact Title" id="titleFilter">
+          </div>
+          <div class="col">
+            <select class="form-control" id="formatFilter">
+              <option value="" selected >Any Format</option>
+              <option value="comic">Comic</option>
+              <option value="hardcover">Hardcover</option>
+              <option value="digitalComic">Digital Comic</option>
+              <option value="tradePaperback">Trade Paperback</option>
+              <option value="digest">Digest</option>
+              <option value="infiniteComic">Infinite Comic</option>
+              <option value="graphicNovel">Graphic Novel</option>
+              <option value="magazine">Magazine</option>
+            </select>
+          </div>
+        </div>
+      <br>
+      <h3> Sort by </h3>
+        <select class="form-control" id="sortFilter">
+          <option value="" selected>Default</option>
+          <option value="titleAscending">Title (Ascending)</option>
+          <option value="titleDescending">Title (Descending)</option>
+          <option value="issueAscending">Issue Number (Ascending)</option>
+          <option value="issueDescending">Issue Number (Descending)</option> 
+        </select>
+      </form>
+      <br>
+      <div id="results" hidden="true">
+        <h3> Results </h3>
+        <div align="center">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button id="leftArrow1" type="button" onclick="scrollToLeft()" class="btn-outline-dark"><img src="leftArrow.svg"> </img></button>
+            <p id="resultCount1" style="padding-top:20px; padding-left:20px; padding-right:20px"> </p>
+            <button id="rightArrow1" type="button" onclick="scrollToRight()" class="btn-outline-dark"><img src="rightArrow.svg"> </img> </button>
+          </div>
+        </div>
+        <table class="table table-striped" id="comic-table">
+          <thead>
+            <tr>
+              <th scope="col">Thumbnail</th>
+              <th scope="col">Comic Title and Description</th>
+            </tr>
+          </thead>
+          <tbody id="t-body">
+          </tbody>
+          </table>
+          <div align="center">
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button id="leftArrow2" type="button" onclick="scrollToLeft()" class="btn-outline-dark" ><img src="leftArrow.svg"> </img></button>
+              <p id="resultCount2" style="padding-top:20px; padding-left:20px; padding-right:20px"> </p>
+              <button id="rightArrow2" type="button" onclick="scrollToRight()" class="btn-outline-dark"><img src="rightArrow.svg"> </img> </button>
+              <br>
+            </div>
+            <p><small>Data provided by Marvel. © 2014 Marvel</small></p>
+          </div>
+        </div>
+    </div>
+    
+  </body>
+
+</html>
